@@ -1,0 +1,16 @@
+#include <fstream>
+#include <iostream>
+using namespace std;
+
+int main() {
+    fstream f("lines.txt", ios::in);
+    int count = 0;
+    string s;
+
+    while(getline(f,s)) count++;
+    f.close();
+
+    f.open("lines.txt", ios::app);
+    f << "\ntotal lines : " << count;
+    f.close();
+}
