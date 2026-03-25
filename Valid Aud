@@ -1,0 +1,34 @@
+#include <iostream>
+using namespace std;
+
+class Valid_auditor;
+
+class Valid {
+    int balance;
+public:
+    Valid(int b) : balance(b) {}
+    void deposit(int a) { if (a > 0) balance += a; }
+    void withdraw(int a) { if (a > 0 && a <= balance) balance -= a; }
+    friend class Valid_auditor;
+};
+
+class Valid_auditor {
+public:
+    void report(const Valid& v) const {
+        cout << v.balance << endl;
+    }
+};
+
+class Third {
+public:
+    void test(const Valid& v) {
+        // cannot access v.balance
+    }
+};
+
+int main() {
+    Valid v(100);
+    v.deposit(50);
+    Valid_auditor a;
+    a.report(v);
+}
