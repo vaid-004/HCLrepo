@@ -1,0 +1,11 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string a = "One", b = "Two", c = "Three";
+    string* arr[3] = { &a, &b, &c };
+
+    for (int i = 0; i < 3; i++)
+        cout << *arr[i] << endl;
+}
