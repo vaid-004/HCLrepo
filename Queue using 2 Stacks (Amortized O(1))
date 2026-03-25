@@ -1,0 +1,22 @@
+#include <iostream>
+#include <stack>
+using namespace std;
+
+stack<int> s1, s2;
+
+void enq(int x) { s1.push(x); }
+
+int dq() {
+    if (s2.empty())
+        while (!s1.empty()) {
+            s2.push(s1.top());
+            s1.pop();
+        }
+    int x = s2.top(); s2.pop();
+    return x;
+}
+
+int main() {
+    enq(10); enq(20); enq(30);
+    cout << dq() << " " << dq();
+}
