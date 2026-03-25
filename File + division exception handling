@@ -1,0 +1,20 @@
+#include <fstream>
+#include <iostream>
+using namespace std;
+
+int main() {
+    try {
+        ifstream f("num.txt");
+        if (!f) throw "File error";
+
+        int a,b;
+        f >> a >> b;
+        if (b == 0) throw "Division error";
+
+        cout << a / b << endl;
+        f.close();
+    }
+    catch(const char* e) {
+        cout << e << endl;
+    }
+}
