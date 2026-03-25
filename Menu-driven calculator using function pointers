@@ -1,0 +1,15 @@
+#include <iostream>
+using namespace std;
+
+int add(int a,int b){return a+b;}
+int sub(int a,int b){return a-b;}
+int mul(int a,int b){return a*b;}
+int divi(int a,int b){return a/b;}
+
+int main() {
+    int ch,a,b;
+    int (*op[4])(int,int) = {add,sub,mul,divi};
+
+    cin >> ch >> a >> b;
+    cout << op[ch-1](a,b) << endl;
+}
